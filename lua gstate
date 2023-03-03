@@ -1,0 +1,91 @@
+
+
+    push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
+        fullscreen = false,
+        vsync = true,
+        resizable = true
+    })
+
+    love.graphics.setFont(gFonts['small'])
+
+    gStateMachine = StateMachine {
+        ['start'] = function() return StartState() end,
+        ['play'] = function() return PlayState() end,
+        ['game-over'] = function() return GameOverState() end
+    }
+    gStateMachine:change('start')
+
+    gSounds['music']:setLooping(true)
+    gSounds['music']:play()
+
+    love.keyboard.keysPressed = {}
+end
+
+function love.resize(w, h)
+    push:resize(w, h)
+end
+
+function love.keypressed(key)
+    love.keyboard.keysPressed[key] = true
+end
+
+function love.keyboard.wasPressed(key)
+    return love.keyboard.keysPressed[key]
+end
+
+function love.update(dt)
+    Timer.update(dt)
+    gStateMachine:update(dt)
+
+    love.keyboard.keysPressed = {}
+end
+
+function love.draw()
+    push:start()
+    gStateMachine:render()
+    push:finish()
+end
+else if (love.keyboard.keysPressed[key]) then
+    return true
+else
+    return to main mennu if (love.keyboard.keyspressed(key)) then
+        return true 
+    else 
+        return false 
+    end
+    debug (love.keyboard.keyspressed(key))
+    while (love.keyboard.keypressed(key)) do 
+        return true 
+    end
+    if character is dead then 
+        return to main menu 
+    end
+    while character find key then 
+        pause game and show key 
+    else if character not find key then 
+        return to main menu 
+    end
+    create a object that can be used to open door 
+    if character find object(key) then 
+        open door to pass level 
+    else if character not find object(key) then 
+        return to main menu
+    end 
+    do (love.load) while (love.keyboard.keyspressed(key))do 
+        return true 
+        create paddle if (love.keyboard.keyspressed(key)) then 
+            create gStateMachine('play')until (love.keyboard.keyspressed(key)) then 
+                require 'src/Dependencies'
+                require 'src/StateMachine'
+                require 'src/states/BaseState'
+                require 'src/states/StartState'
+                require 'src/states/PlayState'
+                require 'background'
+                require 'src/states/GameOverState'
+                require 'src/states/BeginGameState' 
+                require 'src/states/PlayState'
+                require 'src/states/GameOverState'
+                require 'src/states/StartState'
+                require 'src/states/baseState'
+            end
+        end                                                             
