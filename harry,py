@@ -1,0 +1,31 @@
+from logic import *
+import termcolor
+
+# Define the symbols
+rain = Symbol("rain") # It is raining
+hagrid = Symbol("hagrid") # Harry visited Hagrid
+dumbledore = Symbol("dumbledore") # Harry visited Dumbledore
+mustard = Symbol("mustard") # Mr. Mustard is the killer
+plum = Symbol("plum") # Professor Plum is the killer
+scarlet = Symbol("scarlet") # Miss Scarlet is the killer
+ballroom = Symbol("ballroom") # The murder happened in the ballroom
+kitchen = Symbol("kitchen") # The murder happened in the kitchen
+library = Symbol("library") # The murder happened in the library
+knife = Symbol("knife") # The murder weapon is a knife
+revolver = Symbol("revolver") # The murder weapon is a revolver
+wrench = Symbol("wrench") # The murder weapon is a wrench
+
+# Define the knowledge base
+knowledge = and(
+    Implication(NOT(rain), hagrid), # If it's not raining, Harry visited Hagrid
+    or(mustard, plum, scarlet), # The killer is one of Mr. Mustard, Professor Plum, or Miss Scarlet
+    or(ballroom, kitchen, library), # The murder happened in one of the ballroom, kitchen, or library
+    or(knife, revolver, wrench) # The murder weapon is one of the knife, revolver, or wrench
+)
+
+# Define the list of symbols to check
+symbols = [rain, hagrid, dumbledore, mustard, plum, scarlet, ballroom, kitchen, library, knife, revolver, wrench]
+
+# Define a function to check the knowledge
+def check_knowledge(knowledge)
+
